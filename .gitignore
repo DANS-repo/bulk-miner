@@ -90,3 +90,6 @@ ENV/
 
 .idea/
 
+# the data folder used for pmh excursions
+pmh/data/
+

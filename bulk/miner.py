@@ -96,9 +96,9 @@ if __name__ == '__main__':
     ch.setFormatter(formatter)
     root.addHandler(ch)
 
-    input_file = os.path.expanduser("~/SURFdrive/mining/recent_arch_datesets.csv")
+    input_file = os.path.expanduser("~/SURFdrive/mining/recent_arch_datesets_2.csv")
     # input_file = os.path.expanduser("~/SURFdrive/mining/test.csv")
-    output_file = os.path.expanduser("~/SURFdrive/mining/recent_pdf_files.csv")
+    output_file = os.path.expanduser("~/SURFdrive/mining/recent_arch_files_3.csv")
 
     miner = Miner()
     miner.create_pdf_file_list(input_file, output_file)
