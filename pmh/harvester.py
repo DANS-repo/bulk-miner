@@ -62,6 +62,7 @@ class Harvester(object):
 
 
 if __name__ == '__main__':
+    # testing:
     harvester = Harvester("https://easy.dans.knaw.nl/oai/")
     doi = harvester.find_doi("easy-dataset:660")
     print(doi)
