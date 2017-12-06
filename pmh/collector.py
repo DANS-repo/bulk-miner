@@ -4,9 +4,13 @@ import csv
 
 from pmh.harvester import Harvester
 
-infile = "data/1_inDans_inArchis2.txt"
-outfile = "data/inDans_inArchis2_doi.csv"
-missing = "data/missing_inDans_inArchis2.csv"
+# infile = "data/1_inDans_inArchis2.txt"
+# outfile = "data/inDans_inArchis2_doi.csv"
+# missing = "data/missing_inDans_inArchis2.csv"
+
+infile = "data/4_inDans_analoogArchis.txt"
+outfile = "data/inDans_analoogArchis_doi.csv"
+missing = "data/missing_inDans_analoogArchis.csv"
 
 host_address = "https://easy.dans.knaw.nl/oai/"
 
