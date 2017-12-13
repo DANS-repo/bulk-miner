@@ -1,7 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 import logging
-import urllib
 from xml.etree import ElementTree
 
 import requests
@@ -60,9 +59,24 @@ class Harvester(object):
                 return identifier.text
         return None
 
+    def find_dcmi_type(self, easy_id):
+        """
+        Find the `dcmi:type` for a given easy_id. If the record with the given id does not exists
+        or if it has no `dcmi:type` we'll return None.
+        :param easy_id: the dataset id
+        :return: the `dcmi:type` of the dataset or None
+        :raises: HttpError for transport errors.
+        """
+        root, error = self.get_record(easy_id, metadata_prefix="nl_didl")
+        for mods_form in root.iter("{http://www.loc.gov/mods/v3}form"):
+            if "authority" in mods_form.attrib and mods_form.attrib["authority"] == "http://purl.org/dc/terms/DCMIType":
+                return mods_form.text
+        return None
+
 
 if __name__ == '__main__':
     # testing:
     harvester = Harvester("https://easy.dans.knaw.nl/oai/")
-    doi = harvester.find_doi("easy-dataset:660")
-    print(doi)
+
+    #print(harvester.find_doi("easy-dataset:660"))
+    print(harvester.find_dcmi_type("easy-dataset:5206"))
